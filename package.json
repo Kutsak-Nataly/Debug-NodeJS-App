@@ -1,20 +1,25 @@
 {
   "name": "brokenapp",
   "version": "1.0.0",
+  "type": "commonjs",
   "main": "app.js",
   "license": "MIT",
   "scripts": {
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^15.0.3",
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.3.0",
     "pg": "^7.6.0",
     "sequelize": "^4.41.0"
   },
   "devDependencies": {
+    "eslint": "^7.26.0",
     "nodemon": "^1.18.5"
   }
 }
