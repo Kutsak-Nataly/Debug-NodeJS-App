@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
-const user = require('./controllers/usercontroller');
-const game = require('./controllers/gamecontroller');
+const user = require('./router/usercontroller');
+const game = require('./router/gamecontroller');
 
 db.sync()
-    .then(() => console.log('synchronization was successful '))
+    .then(() => console.log('Database sync was successful'))
     .catch(err => console.log(err));
 app.use(require('body-parser'));
 app.use('/api/auth', user);

@@ -1,7 +1,7 @@
+const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
-module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('game', {
+const Game = sequelize.define('Game', {
         title: {
             type: DataTypes.STRING(25),
             allowNull: false,
@@ -36,5 +36,6 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: false,
             allowNull: false
         }
-    })
-};
+    });
+
+module.exports = Game;

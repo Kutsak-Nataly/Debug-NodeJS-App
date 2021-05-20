@@ -8,6 +8,8 @@
 7. установить модуль bcrypt [npm install bcrypt]
 8. исправлени импорт модуля в файле controllers/gamecontroller.js
 9. добавила параметр [operatorsAliases: false] в файле db.js конфигурация sequelize.
+10. необходимо обновить версию "pg": "^8.0.3" в файле package.json, чтобы произошло соединение с базой данных
+11. исправлены описания моделей для базы данных, добавлен импорт необходимых модулей. В файлах user.js, game.js. В результате созданы таблицы в базе данных.
 
 
 
@@ -30,3 +32,4 @@ db.sync()
        .then(result => console.log(result))
        .catch(err => console.log(err));
 4. Переименование функции signupFail по рекомендации eslint. -> function signUpFail(err)
+5. Разделение API на 3 слоя. services - сервис, repository - обращения к базе данных, route - обработка азпросов http. Переименование папки controller -> router

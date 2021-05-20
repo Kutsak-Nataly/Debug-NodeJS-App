@@ -1,11 +1,15 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('gamedb', 'postgres', 'Rovdo-3894127', {
-    host: 'localhost',
-    dialect: 'postgres',
-    port: '5433',
-    operatorsAliases: false
-});
+const sequelize = new Sequelize(
+    'gamedb1',
+    'postgres',
+    'Rovdo-3894127',
+    {
+        host: 'localhost',
+        dialect: 'postgres',
+        port: '5433',
+        operatorsAliases: false
+    });
 
 sequelize
     .authenticate()
