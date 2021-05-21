@@ -46,7 +46,7 @@ const Game = sequelize.define('Game', {
 
 Game.belongsTo(User, {
     foreignKey: 'owner_id',
-    sourceKey: 'uuid',
+    sourceKey: User.id,
 });
 
 module.exports = Game;
