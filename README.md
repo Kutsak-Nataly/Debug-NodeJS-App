@@ -7,7 +7,7 @@
 6. Строка 5: controllers/usercontroller.js - исправить подключение router на [const router = require('express').Router();]
 7. Строка 2: controllers/usercontroller.js - Ошибка подключения bcryptjs. Исправлено на [const bcrypt = require('bcryptjs');]. bcryptjs - является чистым JS, а другой имеет привязки к родной крипто-библиотеке C++.
 8. Строка 2: controllers/gamecontroller.js - Исправлен импорт модуля.
-9. Строка 6: db.js - Для устранения сообщения об предупреждении про устаревшие параметра. Добавлено [operatorsAliases: false].
+10. Строка 19: package.json. Обновление до свежей версии "sequelize": "^6.6.2" убрало сообщение об ошибкаъ про устаревшие параметры.
 Deprecation warning for String based operators
 
 Найденные ошибки логики приложения
@@ -25,7 +25,7 @@ Deprecation warning for String based operators
 3. Строка 38: models\game.js - Описать связанность таблиц данных user->game.
 Связь один к многим, у одного user может быть много game [Game.belongsTo(User, {
                                                               foreignKey: 'owner_id',
-                                                              sourceKey: User.id,
+                                                              sourceKey: User.id,]
 4. Строка 3: models\game.js - Добавлен импорт  модуля User в модуль Game. В файлах user.js, game.js. В результате созданы таблицы в базе данных.                                                        });]
 5. Строка 18: package.json. необходимо обновить версию "pg": "^8.0.3" в файле package.json, чтобы подключиться к базе
 6. По всему файлу много строк usercontroller.js. bcrypt.compare - асинхронная функция, возвращает промис. Оформить надо соответсвенно. 
