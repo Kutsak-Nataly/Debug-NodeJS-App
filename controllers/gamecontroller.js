@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const Game = require('../models/game');
+const jwt = require('jsonwebtoken');
+const {tokenKey} = require('../constant/constant');
 
+function userId(token) {
+    return jwt.verify(token, tokenKey);
+}
 
 router.get('/all', (req, res) => {
     Game.findAll({where: {owner_id: req.user.id}})
@@ -32,14 +37,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-    Game.create({
+    const userId = userId(req.headers.authorization);
+    const game = {
         title: req.body.game.title,
-        owner_id: req.body.user.id,
+        owner_id: userId,
         studio: req.body.game.studio,
         esrb_rating: req.body.game.esrb_rating,
         user_rating: req.body.game.user_rating,
         have_played: req.body.game.have_played
-    })
+    };
+    Game.create(game)
         .then(game => {
             res.status(200).json({
                 game: game,
