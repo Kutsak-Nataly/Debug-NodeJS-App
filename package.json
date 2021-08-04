@@ -20,7 +20,8 @@
   },
   "devDependencies": {
     "eslint": "^7.26.0",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+  "glob-parent": ">=5.1.2"
   },
   "engines": {
     "node": "^14.16.1"
