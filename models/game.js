@@ -1,5 +1,7 @@
-function(sequelize, DataTypes) {
-    return sequelize.define('game', {
+const {DataTypes} = require('sequelize');
+const sequelize = require('../db');
+
+const Game = sequelize.define('Game', {
         title: {
             type: DataTypes.STRING(25),
             allowNull: false,
@@ -12,7 +14,7 @@ function(sequelize, DataTypes) {
 
         studio: {
             type: DataTypes.STRING,
-            allowNull: false,            
+            allowNull: false,
         },
 
         esrb_rating: {
@@ -29,10 +31,13 @@ function(sequelize, DataTypes) {
             }
         },
 
-        have_played : {
+        have_played: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
             allowNull: false
         }
-    })
-}
+    },
+    {timestamps: false}
+);
+
+module.exports = Game;
